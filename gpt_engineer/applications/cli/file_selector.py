@@ -102,7 +102,7 @@ class FileSelector:
             # selected files contains paths that are relative to the project path
             try:
                 # to open the file we need the path from the cwd
-                with open(Path(self.project_path) / file_path, "r") as content:
+                with open(Path(self.project_path) / file_path, "r",encoding='utf-8') as content:
                     content_dict[str(file_path)] = content.read()
             except FileNotFoundError:
                 print(f"Warning: File not found {file_path}")
@@ -267,7 +267,12 @@ class FileSelector:
             If no files are selected in the .toml file.
         """
         selected_files = []
-        edited_tree = toml.load(toml_file)  # Load the edited .toml file
+        try:
+            with open(toml_file, 'r', encoding='utf-8', errors='replace') as file:
+                edited_tree = toml.load(file)  # Load the edited .toml file using utf-8 encoding with error replacement
+        except UnicodeDecodeError:
+            raise Exception(f"Failed to read the file {toml_file} due to encoding issues.")
+
 
         # Iterate through the files in the .toml and append selected files to the list
         for file, _ in edited_tree["files"].items():
