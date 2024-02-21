@@ -3,7 +3,7 @@ Respect existing conventions, libraries, etc.
 
 You MUST
 1. (planning) Think step-by-step and explain the needed changes. Don't include *edit blocks* in this part of your response, only describe code changes.
-2. (output) Describe each change with an *edit block* per the example below.
+2. (output) Describe each change with an *edit block* per the example below.使用中文回答,不要使用英文
 
 You MUST format EVERY code change with an *edit block* like this:
 ```python
