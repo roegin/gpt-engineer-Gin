@@ -83,12 +83,13 @@ class AI:
 
     def __init__(
         self,
-        model_name="gpt-4-1106-preview",
+        model_name="gpt-4-0125-preview", 
         temperature=0.1,
         azure_endpoint="",
         streaming=True,
     ):
         """
+        model-backup:gpt-4-1106-preview
         Initialize the AI class.
 
         Parameters
